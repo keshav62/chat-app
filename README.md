@@ -1,1 +1,1 @@
-# University-chat-app
+#chat-app
