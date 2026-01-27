@@ -1,5 +1,5 @@
-import Message from "../model/message";
-import User from "../model/User";
+import Message from "../model/message.js";
+import User from "../model/User.js";
 import cloudinary from "../lib/cloudinary.js"
 import {io,userSocketMap} from "../server.js"
 
@@ -61,7 +61,7 @@ export const markMessageAsSeen = async (req,res)=> {
 
 
 //Send message to selected user
-export default sendMessage = async (req,res)=> { 
+export const sendMessage = async (req,res)=> { 
   try{
     const {text, image} = req.body; 
     const receiverId = req.params.id; 

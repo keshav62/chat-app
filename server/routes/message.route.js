@@ -1,6 +1,6 @@
 import express from 'express';
-import { protectRoute } from '../middleware/auth.middleware';
-import { getMessages, getUsersForSidebar, markMessageAsSeen, sendMessage } from '../controller/message.controller';
+import { protectRoute } from '../middleware/auth.middleware.js';
+import { getMessages, getUsersForSidebar, markMessageAsSeen, sendMessage } from '../controller/message.controller.js';
 
 
 const messageRouter = express.Router();

@@ -6,7 +6,6 @@ import { connectDB } from "./lib/db.js";
 import userRouter from "./routes/userRoutes.js";
 import messageRouter from "./routes/message.route.js";
 import {Server} from "socket.io"; 
-import { useId } from "react";
 
 //Create Express app and HTTP server
 const app = express(); 
