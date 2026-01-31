@@ -45,7 +45,7 @@ app.use('/api/status', (req,res)=> {
   res.send("server is live")
 })
 app.use("/api/auth",userRouter); 
-app.use("api/message",messageRouter); 
+app.use("/api/message",messageRouter); 
 
 //Connect to MongoDB
 await connectDB(); 
