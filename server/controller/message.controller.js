@@ -32,6 +32,9 @@ export const getMessages = async (req,res)=> {
   try{ 
     const {id : selectedUserId } = req.params; 
     const myId = req.user._id;
+    console.log("myId:", myId);
+    console.log("selectedUserId:", selectedUserId);
+
 
     const messages = await Message.find({
       $or : [
@@ -40,6 +43,7 @@ export const getMessages = async (req,res)=> {
       ]
     })
     await Message.updateMany({senderId : selectedUserId, receiverId : myId }, {seen : true}); 
+    console.log(messages); 
     res.json({success:true,messages});
   }
   catch(error){ 
@@ -77,6 +81,7 @@ export const sendMessage = async (req,res)=> {
       receiverId, 
       text, 
       image :  imageUrl,
+      
     })
 
     //Emit the new message to the reciver's socket 
@@ -85,9 +90,13 @@ export const sendMessage = async (req,res)=> {
       io.to(reciverSocketId).emit("newMessage", newMessage); 
     }
 
+    console.log("text:", text);
+    console.log("newMessages" , newMessage); 
+
     res.json({success : true, newMessage}); 
   }
   catch(error){
+    console.log("Messages comes from here")
     res.json({success : false, message : error.message});
   }
 }
