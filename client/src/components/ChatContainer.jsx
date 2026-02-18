@@ -26,7 +26,8 @@ const ChatContainer = () => {
   //Handle sending an images
   const handleSendImage = async (e)=> { 
     const file = e.target.files[0]; 
-    if(!file || !file.type.startsWith("images/")){ 
+    console.log(file)
+    if(!file || !file.type.startsWith("image/")){ 
       toast.error("Select an image file"); 
       return; 
     }
@@ -71,7 +72,7 @@ const ChatContainer = () => {
             <div key={index} className={`flex flex-end gap-2 justify-end ${msg.senderId 
               !== authUser._id && 'flex-row-reverse'}`}>
                 {msg.image ? (
-                    <img src={msg.image} alt="" className='max-2-[230px] border border-gray-700 rounded-lg overflow-hidden mb-8 '/>
+                    <img src={msg.image} alt="" className='max-w-[230px] border border-gray-700 rounded-lg overflow-hidden mb-8 '/>
 
                 ): 
                 (
